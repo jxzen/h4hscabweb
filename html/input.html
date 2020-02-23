@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="../scripts/codes.js"></script>
+        <link rel="stylesheet" href="../styles/styles.css">
+
+    </head>
+
+    <script>
+        // Prevent forms from submitting.
+        function preventFormSubmit() {
+          var forms = document.querySelectorAll('form');
+          for (var i = 0; i < forms.length; i++) {
+            forms[i].addEventListener('submit', function(event) {
+            event.preventDefault();
+            });
+          }
+        }
+        window.addEventListener('load', preventFormSubmit);    
+            
+            
+        function handleFormSubmit(formObject) {
+          alert("You successfully submitted your evaluation.");
+          google.script.run.processForm(formObject);
+          document.getElementById("myForm").reset();
+        }
+      </script>
+
+    <body>
+        <div class="topnav">
+            <p>title</p>
+            <a class="active" href="#home">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="about.html">About us</a> 
+            <a href="input.html"> recommendation form</a>
+          </div>
+          
+        <div class="container">
+            <div class="row">
+                <div class="col-25">
+                    <form id="myForm" onsubmit="handleFormSubmit(this)">
+                        <p class="h4 mb-4 text-center">Professor Evaluation</p>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="professor">Professor's Name</label>
+                                <input type="text" class="form-control" id="professor" name="professor" placeholder="e.g N Shaghaghi">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="course">Course Name</label>
+                                <input type="text" class="form-control" id="course" name="course" placeholder="e.g CSCI 10">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-7">
+                                <p>When was the class start time?</p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="time" id="early" value="Early morning (8 - 10 am)">
+                                    <label class="form-check-label" for="early">Early morning (8 - 10 am)</label>
+                                </div>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="time" id="not as early" value="Not-as-early morning (11 am - 1 pm)">
+                                    <label class="form-check-label" for="not as early">Not-as-early morning (11 am - 1 pm)</label>
+                                </div>
+                                 <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="time" id="afternoon" value="Afternoon (2 - 4 pm)">
+                                    <label class="form-check-label" for="afternoon">Afternoon (2 - 4 pm)</label>
+                                </div>
+                                 <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="time" id="evening" value="Evening (5 - 6 pm)">
+                                    <label class="form-check-label" for="evening">Evening (5 - 6 pm)</label>
+                                </div>
+                                 <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="time" id="Late" value="Late (7 - 9 pm)">
+                                    <label class="form-check-label" for="Late">Late (7 - 9 pm)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                      <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How available is your professor outside of class?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (little to none at all)</label>
+                                    <input class="form-check-input" type="range" name="availability" id="availability" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="availability">5 (Whenever I needed)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How useful are the professor’s office hours?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (Waste of time)</label>
+                                    <input class="form-check-input" type="range" name="useful_office" id="useful_office" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="useful_office">5 (Perfect)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>What was the pace of the class?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (slow)</label>
+                                    <input class="form-check-input" type="range" name="pace" id="pace" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="pace">5 (fast)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>Professor communicated relevant student information effectively?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (strongly disagree)</label>
+                                    <input class="form-check-input" type="range" name="comm" id="comm" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="comm">5 (strongly agree)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How was the professor’s syllabus?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (Little to no detail, pretty much useless)</label>
+                                    <input class="form-check-input" type="range" name="syllabus" id="syllabus" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="syllabus">5 (Perfect)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How much lecturing & note-taking was there?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (very little)</label>
+                                    <input class="form-check-input" type="range" name="note" id="note" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="note">5 (notes… so many notes)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How often did your professor use visuals?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (Maybe showed a youtube video once?) </label>
+                                    <input class="form-check-input" type="range" name="visuals" id="visuals" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="visuals">5 (Powerpoints ALL DAY EVERY DAY)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How much hands on work did the professor implement?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (none)</label>
+                                    <input class="form-check-input" type="range" name="hands" id="hands" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="hands">5 (a LOT)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p>How much group work/discussions did the professor implement?</p>
+                                <div class="form-check form-check-inline">
+                                <label class="form-check-label" for="availability">1 (none)</label>
+                                    <input class="form-check-input" type="range" name="group" id="group" min="1" max="5" value="3">
+                                    <label class="form-check-label" for="group">5 (a LOT)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                    <div id="output"></div>
+                </div>
+            </div>      
+        </div>
+    </body>
+</html>

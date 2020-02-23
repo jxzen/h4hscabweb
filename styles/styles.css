@@ -15,12 +15,15 @@
   
   /* Change the color of links on hover */
   .topnav a:hover {
-    background-color: #71A371;
+    background-color: #1F471D;
     color: black;
   }
   
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: #4CAF50;
+    background-color: #3DA15E;
     color: white;
+    #1F471D,#71A371,#3DA15E,#FFFFFF,#5A6159,#FFFFFF,#65C4CF,#54B9C7
   }
+
+  color: 

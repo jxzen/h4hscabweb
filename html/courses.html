@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="scripts/scripts.js"></script>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
   <div class="topnav">
     <p>title</p>
     <a class="active" href="#home">Home</a>
-    <a href="professors.html">Professors</a>
     <a href="courses.html">Courses</a>
-    <a href="about.html">About us</a> 
+    <a href="about.html">About us</a>
+    <a href="input.html"> recommendation form</a> 
   </div>
 
 
   <h1>course page</h1>
   <p>this is the about page where you can search for courses and select professors based on the course.</p>
+
+
+    course: <input type = "text" name = "inputcourse" />
+    <button onclick="insert_html()"> subs</button>
+  
+
+ 
+
+<div sheetsu="https://sheetsu.com/apis/v1.0su/cc3ef25325e9" sheetsu-search='{"Course": "Test"}'>
+  <p>name: {{name}}, course: {{Course}}, classtime: {{classtime}}</p>
+</div>
+
+<div id="output1"></div>
+
+<script>
+  function insert_html() {
+  var str = document.getElementsByName('inputcourse')[0].value;
+              var codeblock = '<div sheetsu="https://sheetsu.com/apis/v1.0su/cc3ef25325e9" sheetsu-search' + '=\'{"Course": "' + str + '"}\'' + '>' +
+        '<p>name: {{name}}, course: {{'+ str + '}}, classtime: {{classtime}}</p> </div>';
+
+              document.getElementById("output1").innerHTML = codeblock;
+  }
+</script>
+
+<script src="//load.sheetsu.com"></script>
+
 </body>
 </html>
